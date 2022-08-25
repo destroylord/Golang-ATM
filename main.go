@@ -6,10 +6,11 @@ import (
 
 var saldo int = 500000
 var menu string
+var totalSaldo, sisaSaldo, setoranSaldo, tarikSaldo int
 
 func main() {
 
-	kode := "admin123"
+	kode := "12"
 	var pass string = kode
 
 	fmt.Print("Masukkan Kode bank anda: ")
@@ -23,13 +24,22 @@ func main() {
 
 		switch menu {
 		case "1":
-			fmt.Print("1. Manu Infromasi Saldo")
+			fmt.Println("1. Menu Infromasi Saldo")
+			fmt.Printf("SALDO REKENING ANDA: %b \n", totalSaldo)
 		case "2":
-			fmt.Print("2. Manu Tambah Saldo")
+			fmt.Println("2. Menu Setor Tunai")
+			fmt.Printf("Masukkan nominal: %b", setoranSaldo)
+			fmt.Scan(&setoranSaldo)
+			operatorSetoran(totalSaldo, setoranSaldo)
+			// fmt.Print(totalSaldo)
+			// Template()
 		case "3":
-			fmt.Print("3. Menu Tarik Tunai")
+			fmt.Println("3. Menu Tarik Tunai")
+			fmt.Printf("Masukkan nominal setoran: %b \n", tarikSaldo)
+			fmt.Scan(&tarikSaldo)
 		default:
-			fmt.Print("Tidak terdapat menu")
+			fmt.Println("Tidak terdapat menu")
+			Template()
 		}
 	}
 }
@@ -38,10 +48,16 @@ func Template() {
 	fmt.Printf("SALDO ANDA: %d \n", saldo)
 	fmt.Println("======= Silahkan Pilih Menu =======")
 	fmt.Println("1. Informasi Saldo")
-	fmt.Println("2. Tambah Saldo")
+	fmt.Println("2. Setor Tunai")
 	fmt.Println("3. Tarik Tunai")
+	fmt.Println("4. Ubah Pin")
 	fmt.Print("Silahkan Masukkan menu: ")
 	fmt.Scan(&menu)
 	// fmt.Print("======= Copyright by Dafrin =======")
+}
 
+func operatorSetoran(totalSaldo, setoranSaldo int) int {
+	var value int = totalSaldo + setoranSaldo
+	fmt.Printf("Saldo anda: %b", value)
+	return value
 }
