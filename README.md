@@ -3,7 +3,7 @@
 - [x] Kode bank
 - [ ] Ubah kode bank
 - [x] Saldo awal = 1000.000
-- [ ] Currency
+- [x] Currency
 - [x] Total Saldo
 - [x] Informasi Saldo & pengguna
 - [ ] Tarik Tunai
