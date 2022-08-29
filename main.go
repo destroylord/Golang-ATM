@@ -80,12 +80,12 @@ func main() {
 					fmt.Printf("Masukkan nominal yang anda inginkan: ")
 					fmt.Scan(&changeNominal)
 
-					totalPenarikanSaldoChange := saldo - changeNominal
+					totalPenarikanSaldoChange := (saldo - changeNominal) - 2500
 					fmt.Printf("Sisa saldo anda setelah penarikan adalah :%d", totalPenarikanSaldoChange)
 					break
 				} else {
 
-					totalPenarikanSaldo := saldo - menus[key]
+					totalPenarikanSaldo := (saldo - menus[key]) - 2500
 					fmt.Printf("Saldo penarikan saat ini: %d", totalPenarikanSaldo)
 					break
 
