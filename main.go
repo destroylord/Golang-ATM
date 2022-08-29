@@ -18,6 +18,8 @@ func main() {
 	// fmt.Println("total saldo: ", saldoTotal)
 	namaPengguna = "John Doe"
 
+	var namaPengguna string = "asdasd"
+
 	// pin
 	pin := 1234
 	pass := pin
@@ -66,29 +68,33 @@ func main() {
 				5: 1000000,
 			}
 
-			// var nominalPenarikan int
-			// fmt.Scan(nominalPenarikan)
-			// fmt.Printf("Silahkan masukkan nominal yang akan anda tarik: %d", nominalPenarikan)
-
 			for key := range menus {
 
 				fmt.Printf("Silahkan masukkan menu: ")
 				fmt.Scan(&key)
 
 				if key >= len(menus) {
+
 					var changeNominal int
 					fmt.Printf("Masukkan nominal yang anda inginkan: ")
 					fmt.Scan(&changeNominal)
 
-					totalPenarikanSaldoChange := (saldo - changeNominal) - 2500
-					fmt.Printf("Sisa saldo anda setelah penarikan adalah :%d", totalPenarikanSaldoChange)
-					break
+					if changeNominal <= 50000 {
+						fmt.Printf("Maaf minimum penarikan saldo sebesar Rp.50.000,00")
+						break
+					} else {
+
+						totalPenarikanSaldoChange := (saldo - changeNominal) - 2500
+
+						fmt.Printf("Sisa saldo anda setelah penarikan adalah :%d", totalPenarikanSaldoChange)
+						break
+					}
+
 				} else {
 
 					totalPenarikanSaldo := (saldo - menus[key]) - 2500
 					fmt.Printf("Saldo penarikan saat ini: %d", totalPenarikanSaldo)
 					break
-
 				}
 
 			}
@@ -109,22 +115,21 @@ func Template() {
 	fmt.Println("4. Ubah Pin")
 	fmt.Print("Silahkan Masukkan menu: ")
 	fmt.Scan(&menu)
-	// fmt.Println("\033[2J")
 	// fmt.Print("======= Copyright by Dafrin =======")
 }
 
-func OperatorTarikTunai(totalSaldo int) int {
-	var tarikSaldo int
-	minimumSaldo := 6000
-	fmt.Print("jumlah tarik saldo: ")
-	fmt.Scan(&tarikSaldo)
+// func OperatorTarikTunai(totalSaldo int) int {
+// 	var tarikSaldo int
+// 	minimumSaldo := 6000
+// 	fmt.Print("jumlah tarik saldo: ")
+// 	fmt.Scan(&tarikSaldo)
 
-	outputSaldo := totalSaldo - tarikSaldo
-	if totalSaldo > minimumSaldo {
-		fmt.Printf("maaf saldo anda tidak boleh kurang dari %d \n", minimumSaldo)
-	} else if totalSaldo < minimumSaldo {
-		fmt.Printf("saldo saat ini : %d", outputSaldo)
-	}
-	return outputSaldo
+// 	outputSaldo := totalSaldo - tarikSaldo
+// 	if totalSaldo > minimumSaldo {
+// 		fmt.Printf("maaf saldo anda tidak boleh kurang dari %d \n", minimumSaldo)
+// 	} else if totalSaldo < minimumSaldo {
+// 		fmt.Printf("saldo saat ini : %d", outputSaldo)
+// 	}
+// 	return outputSaldo
 
-}
+// }
